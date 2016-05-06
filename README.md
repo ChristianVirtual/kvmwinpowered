@@ -1,15 +1,20 @@
 # kvmwinpowered
 Steps and configuration to setup a virtual folding system with GPU (host: Linux, Guest: Windows)
 
-With this repositiory I want to share the steps needed to setup a QEMU/KVM based virtual environment to be used for folding on GPUs with two different OS.
+In the past and present I use [free ESXi](https://www.vmware.com/products/vsphere-hypervisor/gettingstarted) for virtualizations. It is a robust system I run a number of serices on in my home setup. The biggest downside is the lack of support for reliable PCI passthrough for consumer-grade GPUs.
+
+That part is rather important to me as I'm involved in [Folding@home](http://folding.stanford.edu) distributed computing project from Stanford University.
+
+With this repositiory I want to share my experience gained and the steps needed to setup a QEMU/KVM based virtual environment to be used for folding on GPUs. With two different OS.
 Main OS is Linux (CentOS 7); as guest OS I wanted to give Windows a chance.
+
 
 The main purpose for this build was to enable occational testing of both Linux and Windows folding environments; the main focus was not on performance but on diversity of OS involved.
 
 
 ![Architecture](http://imageshack.com/a/img922/452/yT83Ux.png)
 
-
+1. [Hardware](hardware.md)
 1. Basic Setup for CentOS 7
 Just insert the CD or DVD and follow the instructions (not covert here)
 
