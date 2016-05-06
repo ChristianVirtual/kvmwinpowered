@@ -7,7 +7,7 @@ Main OS is Linux (CentOS 7); as guest OS I wanted to give Windows a chance.
 The main purpose for this build was to enable occational testing of both Linux and Windows folding environments; the main focus was not on performance but on diversity of OS involved.
 
 
-http://imageshack.com/a/img922/452/yT83Ux.png
+![Architecture](http://imageshack.com/a/img922/452/yT83Ux.png)
 
 
 1. Basic Setup for CentOS 7
