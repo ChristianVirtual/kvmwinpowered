@@ -1,6 +1,4 @@
-# Software
-
-## Host - OS and hypervisor software
+# Software I - Host OS and hypervisor software
 
 1. CentOS 7 as host OS for the system
 

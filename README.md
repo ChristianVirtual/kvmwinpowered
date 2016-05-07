@@ -16,7 +16,10 @@ Main OS is Linux (CentOS 7); as guest OS I wanted to Windows; had an unused 8.1 
 ![Architecture](http://imageshack.com/a/img922/452/yT83Ux.png)
 
 1. [Hardware](https://github.com/ChristianVirtual/kvmwinpowered/blob/master/hardware.md)
-2. [Software](https://github.com/ChristianVirtual/kvmwinpowered/blob/master/software.md)
-3. [References & Credits](https://github.com/ChristianVirtual/kvmwinpowered/blob/master/credits.md)
+2. [Software on the host](https://github.com/ChristhianVirtual/kvmwinpowered/blob/master/software_host.md)
+3. [Software on the Windows guest](https://github.com/ChristianVirtual/kvmwinpowered/blob/master/software_win_guest.md)
+4. [Software on the Linux guest - Later, sorry](https://github.com/ChristianVirtual/kvmwinpowered/blob/master/software__linux_guest.md)
+
+4. [References & Credits](https://github.com/ChristianVirtual/kvmwinpowered/blob/master/credits.md)
 
 
