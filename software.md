@@ -11,7 +11,7 @@
     
     As the system is a dedicated 24/7 folding box I don't need any additional fancy stuff like games etc. Just a plain and simple OS with X to be able to control the fans.<br/>
     
-    Check that the installed system is capable to use virtualizing technology	 
+    Next is to check that the installed system is capable to use virtualizing technology	 
 	>```grep -c '(vmx|svm)' /proc/cpuinfo``` 
 
 	The output should show the flags of the CPU capabilities; like in my case
@@ -27,9 +27,9 @@
 	> wp		: yes<br/>
 	> flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl **vmx** smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave **avx** lahf_lm epb tpr_shadow vnmi flexpriority ept vpid xsaveopt dtherm ida arat pln pts<br/>
 
-    We are ready to fly ... <br/>
+	<br/>We are ready to fly ... <br/>
     
-	Change in ```/etc/default/grub``` to blacklist nouveau and enable IOMMU (in my case for Intel-CPU; a different option for AMD required)
+    Change in ```/etc/default/grub``` to blacklist nouveau and enable IOMMU (in my case for Intel-CPU; a different option for AMD required)
 > GRUB_CMDLINE_LINUX="vconsole.keymap=jp106 crashkernel=auto  vconsole.font=latarcyrheb-sun16 rhgb **rd.driver.pre=vfio-pci**  **rdblacklist=nouveau** text **intel_iommu=on**"
 
 	`grub2-mkconfig --output=/boot/grub2/grub.cfg` to update GRUB
@@ -39,6 +39,10 @@
 	> blacklist nouveau<br/>
 	> options nouveau modeset=0<br/>
 
+
+	Another check if that worked until here <br/>
+    ```dmesg | grep DMAR``` and ```dmesg | grep IOMMU``` should give us 
+	> DMAR: IOMMU enabled
 
 
 	Add a file like this (e.g. `local.conf`) in in folder `/etc/modprobe.d`
@@ -86,15 +90,15 @@ Tricky part was was the basic installation to turn off the standard VGA emulatio
 
   108  lspci
   109  grep -v '(vmx|svm)' /proc/cpuinfo 
-  111  more /proc/cpuinfo 
-  112   sudo yum install kvm virt-manager libvirt virt-install qemu-kvm xauth dejavu-lgc-sans-fonts
-  113  echo "net.ipv4.ip_forward = 1" | sudo tee /etc/sysctl.d/99-ipforward.conf
-  114  sudo sysctl -p /etc/sysctl.d/99-ipforward.conf 
+
+112   sudo yum install kvm virt-manager libvirt virt-install qemu-kvm xauth dejavu-lgc-sans-fonts
+
+113  echo "net.ipv4.ip_forward = 1" | sudo tee /etc/sysctl.d/99-ipforward.conf
+
+114  sudo sysctl -p /etc/sysctl.d/99-ipforward.conf 
 
  278  lspci -nn | grep VGA
  
-   292  dmesg | grep DMAR
-  293  dmesg | grep IOMMU
 
 
 2. Install new Linux sources
